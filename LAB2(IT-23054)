@@ -5,34 +5,25 @@ import java.util.Scanner;
 public class SumSeries {
 
     public static void main(String[] args) throws Exception {
-        // Create Scanner object to read from input.txt
         Scanner scanner = new Scanner(new File("input.txt"));
-
-        // Create PrintWriter object to write to output.txt
         PrintWriter writer = new PrintWriter("output.txt");
 
         // Read the entire line from the input file
         String line = scanner.nextLine();
         
-        // Split the line into individual values (assuming they are separated by commas)
+        // Split the line into individual values
         String[] values = line.split(",");
 
-        // Loop through each value
         for (String value : values) {
             // Convert the value to an integer
             int num = Integer.parseInt(value.trim());
 
-            // Calculate the sum from 1 to that value using the formula
             int sum = 0;
             for (int i = 1; i <= num; i++) {
                 sum += i;  // Add each number from 1 to num
             }
-
-            // Write the sum to the output file
             writer.print(sum + ", ");  // Write sum and separate by a comma
         }
-
-        // Close the scanner and writer
         scanner.close();
         writer.close();
 
